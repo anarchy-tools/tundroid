@@ -56,7 +56,7 @@ chmod 600 $TMPSSHDIR/authorized_keys
 cat >> $TMPSSHDIR/config <<EOF
 Host $UUID
   StrictHostKeyChecking no
-  HostName $HOST
+  HostName tundroid
   Port $PORT
   User $SSH_USER
 EOF
@@ -86,7 +86,7 @@ cat > ~/.termux/boot/01tundroid <<WEOF
 #!/data/data/com.termux/files/usr/bin/sh
 termux-wake-lock
 sshd
-autossh -M 0 -o "ServerAliveInterval 30" -o "ServerAliveCountMax 3" -fN $UUID -R $REMOTE_PORT:localhost:8022
+autossh -M 0 -o "ServerAliveInterval 30" -o "ServerAliveCountMax 3" -fN tundroif -R $REMOTE_PORT:localhost:8022
 WEOF
 chmod +x ~/.termux/boot/01tundroid
 cd ..
